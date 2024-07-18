@@ -1,0 +1,26 @@
+  Feature: Login
+
+  Cenario: Usuário faz login com sucesso
+    Given que o usuário está na página de login
+    When o usuário insere o nome de usuário "tandard_user" e a senha "secret_sauce"
+    And clica no botão de login
+    Then o usuário deve ver a página inicial
+    
+
+
+  Feature: Lista de Produtos
+
+  Cenario: Exibir lista de produtos
+    Given que o usuário está na página de produtos
+    When a página de produtos é carregada
+    Then o usuário deve ver uma lista de produtos
+    And cada produto deve exibir o nome e o preço
+
+
+  Feature: Adicionar Produto ao Carrinho
+
+  Cenario: Usuário adiciona um produto ao carrinho
+    Given que o usuário está na página de produtos
+    When o usuário clica no botão "Adicionar ao Carrinho" do primeiro produto
+    Then o produto deve ser adicionado ao carrinho
+    And o carrinho deve mostrar 1 item
