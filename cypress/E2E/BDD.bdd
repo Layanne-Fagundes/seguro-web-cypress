@@ -5,7 +5,7 @@
     When o usuário insere o nome de usuário "tandard_user" e a senha "secret_sauce"
     And clica no botão de login
     Then o usuário deve ver a página inicial
-    
+
 
 
   Feature: Lista de Produtos
@@ -24,3 +24,12 @@
     When o usuário clica no botão "Adicionar ao Carrinho" do primeiro produto
     Then o produto deve ser adicionado ao carrinho
     And o carrinho deve mostrar 1 item
+
+
+  Feature: Remover Produto ao Carrinho
+
+  Cenario: Usuário remove um produto do carrinho
+    Given que o usuário está na página de produtos
+    When o usuário clica no botão "Remover do Carrinho" o primeiro produto
+    Then o produto deve ser removido do carrinho
+    And o carrinho deve mostrar somente itens não removidos
