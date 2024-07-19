@@ -19,15 +19,25 @@
 
 
 Cypress.Commands.add('addItem', (produto) => {;
-
-   cy.contains('.inventory_list', produto) 
+   cy.contains('.inventory_item_label', produto) 
    .parent() // vai para o elemento pai
    .within(() => {
     // encontra e clica no botão "AND TO CART"
-      cy.get('.btn_primary, .btn_inventory').click();
+      cy.get('.btn_primary.btn_inventory').click();
    });
 
   });
+
+
+  Cypress.Commands.add('removeItem', (produto) => {;
+    cy.contains('.inventory_item_label', produto) 
+    .parent() // vai para o elemento pai
+    .within(() => {
+     // encontra e clica no botão "AND TO CART"
+       cy.get('.btn_primary.btn_inventory').click();
+    });
+ 
+   });
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
