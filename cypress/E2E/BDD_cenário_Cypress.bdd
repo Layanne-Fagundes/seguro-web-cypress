@@ -1,0 +1,36 @@
+Feature: Login do Usuário
+
+  Como um usuário,
+  Eu quero fazer login no sistema
+  Para acessar minha conta.
+
+  Scenario: Login com usuário válido
+    Given que estou na página de login
+    When eu preencho o nome com "Layanne Fagundes"
+    And eu preencho o email com "fagundeslayanne@gmail.com"
+    And eu preencho o telefone com "11999999999"
+    And eu preencho a cidade de nascimento com "Rio de Janeiro"
+    And eu preencho a data de aniversário com "1993-07-15"
+    And eu seleciono a empresa "Empresa 1"
+    And eu clico no botão de login
+    Then eu devo ser redirecionado para o dashboard
+    And eu devo ver a mensagem "Bem-vindo, Layanne Fagundes"
+
+
+Feature: Login com Usuário Inválido
+
+  Como um usuário,
+  Eu quero ver uma mensagem de erro
+  Quando tento fazer login com um usuário inválido.
+
+  Scenario: Login com dados inválidos
+    Given que estou na página de login
+    When eu preencho o nome com "Usuário Inválido"
+    And eu preencho o email com "email_invalido@email.com"
+    And eu preencho o telefone com "11999999999"
+    And eu preencho a cidade de nascimento com "São Paulo"
+    And eu preencho a data de aniversário com "1990-05-15"
+    And eu seleciono a empresa "Empresa XYZ"
+    And eu clico no botão de login
+    Then eu devo continuar na página de login
+    And eu devo ver a mensagem "Usuário ou credenciais inválidas"
