@@ -1,0 +1,27 @@
+Feature: Listar Usuários
+
+  Como um consumidor da API,
+  Eu quero listar todos os usuários
+  Para visualizar as informações deles.
+
+  Scenario: Recuperar lista de usuários com sucesso
+    Given que eu faço uma requisição GET para "/api/users"
+    When a resposta é recebida
+    Then o status da resposta deve ser 200
+    And o corpo da resposta deve conter uma lista de usuários
+    And cada usuário deve conter "id", "nome", "email"
+    
+
+    Feature: Criar Usuário
+
+  Como um consumidor da API,
+  Eu quero criar um novo usuário
+  Para adicionar uma nova pessoa ao sistema.
+
+  Scenario: Criar usuário com sucesso
+    Given que eu faço uma requisição POST para "/api/users"
+    And o corpo da requisição contém um nome, email, telefone e cidade
+    When a resposta é recebida
+    Then o status da resposta deve ser 201
+    And o corpo da resposta deve conter o ID do usuário criado
+    And a resposta deve conter o nome, email, telefone e cidade corretos
